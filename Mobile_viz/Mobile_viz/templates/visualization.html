@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+    {% block title %}<title>Visualization</title>{%endblock title%}
+    {% block sheets %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/visualization.css') }}">
+    {% endblock sheets %}
+
+    {% block body %}
+        
+    <div class="containers">
+        <div class=" plots " id="radar ">
+            <object width=100% height=100% data="radar"></object>
+        </div>
+
+        <div class="plots " id="bar ">
+            <object width=100% height=100% data="bar"></object>
+        </div>
+        <div class="plots " id="scatter ">
+            <object width=100% height=100% data="scatter"></object>
+        </div>
+    </div>
+    {% endblock body %}
