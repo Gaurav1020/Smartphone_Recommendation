@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+
+{% block title %}<title> Preferences</title>{% endblock title %}
+{% block sheets %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/plot.css') }}">
+{% endblock sheets %}
+{% block body %}
+<div class="body">
+    <div class='frm'>
+        <form autocomplete="off" action="{{ url_for("plots")}}" method="GET">
+            <label for="price"><p><h5>Max Price:</h5></p></label>
+            <input type="number" id="price" name='prices'><br><br>
+            <div class=preferences>
+                <div class='pref-head'><h4>Preferences</h4></div>
+                <!-- <select  multiple id="mymultiselect" name="mymultiselect">       
+                    <option value="1">Battery</option>       
+                    <option value="2">Camera</option>       
+                    <option value="3">Connectivity</option>
+                    <option value="4">Display</option>
+                    <option value="5">Performance</option>
+                    <option value="6">Software</option>
+                    <option value="7">Sound</option>
+                </select> -->
+                <br>
+                <input type="checkbox" id="vehicle1" name="mymultiselect" value="1">
+                <label for="vehicle1"> Battery</label><br>
+                <input type="checkbox" id="vehicle2" name="mymultiselect" value="2">
+                <label for="vehicle2"> Camera</label><br>
+                <input type="checkbox" id="vehicle3" name="mymultiselect" value="3">
+                <label for="vehicle3"> Connectivity</label><br>
+                <input type="checkbox" id="vehicle1" name="mymultiselect" value="4">
+                <label for="vehicle1"> Display</label><br>
+                <input type="checkbox" id="vehicle1" name="mymultiselect" value="5">
+                <label for="vehicle1"> Performance</label><br>
+                <input type="checkbox" id="vehicle1" name="mymultiselect" value="6">
+                <label for="vehicle1"> Software</label><br>
+                <input type="checkbox" id="vehicle1" name="mymultiselect" value="7">
+                <label for="vehicle1"> Sound</label><br>
+            </div>
+        <!-- <a href="visualization"> -->
+        <input id="Submit_button" type="submit" value="Submit"/>
+        <!-- </a> -->
+        </form>
+    </div>
+    <div class="container">
+        <table id="myTable">
+    
+            <thead>
+                    <tr>
+                        <th class="thphone">Phone</th>
+                        <th>Price</th>
+                        <th>Performance</th>
+                        <th>Antutu</th>
+                        <th>Geekbench5 Multicore</th>
+                        <th>Geekbench5 Singlecore</th>
+                        <th>Camera</th>
+                        <th>Battery</th>
+                        <th>Connectivity</th>
+                        <th>Display</th>
+                        <th>Software</th>
+                        <th>Sound</th>
+                        <th>Update Date</th>
+                    </tr>
+            
+        
+            <tbody>
+                {% for row in rows %}    
+                        <tr>
+                            <td><div class="phonename">{{row[9]}}</div></td>
+                            <td>{{row[10]}}</td>
+                            <td>{{row[8]}}</td>
+                            <td>{{row[0]}}</td>
+                            <td>{{row[5]}}</td>
+                            <td>{{row[6]}}</td>
+                            <td>{{row[2]}}</td>
+                            <td>{{row[1]}}</td>
+                            <td>{{row[3]}}</td>
+                            <td>{{row[4]}}</td>
+                            <td>{{row[11]}}</td>
+                            <td>{{row[12]}}</td>
+                            <td>{{row[13]}}</td>
+                        </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock body %}
