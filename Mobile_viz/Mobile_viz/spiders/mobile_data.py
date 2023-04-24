@@ -38,7 +38,7 @@ class Mobile_data(scrapy.Spider):
 
     def parse(self, response):
         for p in response.css('table.table-list tbody tr'):
-            p.css('td:nth-child(2) a::attr(href)').get()
+            # p.css('td:nth-child(2) a::attr(href)').get()
             PhoneURL= p.css('td:nth-child(2) a::attr(href)').get()
             if PhoneURL is not None:
                 yield response.follow(PhoneURL, callback=self.parse_Specs) 
